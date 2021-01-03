@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.CartPage">
+    <ContentPage.Content>
+        <StackLayout Margin="0,30,0,0"
+                     Spacing="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Source="leftarrow.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Title"
+                       Text="My Cart"
+                       FontAttributes="Bold"
+                       TextColor="#2C2C2C" />
+                <Label Grid.Column="2"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       FontSize="Small"
+                       Text="Clear"
+                       FontAttributes="Bold"
+                       TextColor="#2C2C2C">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapClearCart" Tapped="TapClearCart_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            <ListView x:Name="LvShoppingCart"
+                      SelectionMode="None"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      SeparatorColor="#EAEAEA">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="20"
+                                  HeightRequest="80">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Grid.Column="0"
+                                       Padding="5"
+                                       CornerRadius="10"
+                                       HasShadow="False">
+                                    <Image VerticalOptions="Start"
+                                           HeightRequest="80"
+                                           Source="{Binding FullImageUrl}"/>
+                                </Frame>
+                                <StackLayout Grid.Column="1"
+                                             Margin="15,0,0,0">
+                                    <Label TextColor="#2C2C2C"
+                                           FontSize="Medium"
+                                           Text="{Binding ProductName}"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label CharacterSpacing="1"
+                                               TextColor="#2C2C2C"
+                                               FontSize="Medium"
+                                               Text="{Binding Qty}"/>
+                                        <Label Text="X"
+                                               TextColor="#2C2C2C"
+                                               FontSize="Medium" />
+                                        <Label CharacterSpacing="1"
+                                               TextColor="#2C2C2C"
+                                               FontSize="Medium"
+                                               Text="{Binding Price}"/>
+                                        <Label CharacterSpacing="1"
+                                               TextColor="#FA6400"
+                                               FontSize="Medium"
+                                               HorizontalOptions="EndAndExpand"
+                                               Text="{Binding TotalAmount, StringFormat='{0}$'}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand"
+                             Margin="30,0,0,10">
+                    <Label Text="Total Price"
+                           TextColor="#2C2C2C"
+                           FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="LblTotalPrice"
+                               TextColor="#FA6400"
+                               FontSize="Medium" />
+                        <Label Text="$"
+                               TextColor="#FA6400"
+                               FontSize="Medium" />
+                    </StackLayout>
+                </StackLayout>
+                <Button HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#FA6400"
+                        TextColor="White"
+                        Text="Proceed"
+                        x:Name="BtnProceed" 
+                        Clicked="BtnProceed_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

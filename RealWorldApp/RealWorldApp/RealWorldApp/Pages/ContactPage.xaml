@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.ContactPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="20">
+            <Grid Margin="0,20,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Source="leftarrow.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Title"
+                       Text="Contact Us"
+                       TextColor="#2C2C2C" />
+            </Grid>
+            <Entry Placeholder="Full Name"
+                   Margin="20,0,20,0"
+                   x:Name="EntFullName" />
+            <Entry Placeholder="Phone Number"
+                   Margin="20,0,20,0"
+                   Keyboard="Telephone"
+                   x:Name="EntPhoneNumber" />
+            <Entry Placeholder="Email"
+                   Margin="20,0,20,0"
+                   Keyboard="Email"
+                   x:Name="EntEmail" />
+            <Entry Placeholder="Your message is about"
+                   Margin="20,0,20,0"
+                   x:Name="EntTitle" />
+            <Editor Placeholder="Please explain your issue in detail and our team will get back to you as soon as possible."
+                    HeightRequest="150"
+                    Margin="20,0,20,0"
+                    x:Name="EntDescription" />
+            <Button Text="Send Message"
+                    BackgroundColor="#FA6400"
+                    TextColor="White"
+                    Margin="20,0,20,0"
+                    CornerRadius="25"
+                    x:Name="BtnSendMessage" 
+                    Clicked="BtnSendMessage_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

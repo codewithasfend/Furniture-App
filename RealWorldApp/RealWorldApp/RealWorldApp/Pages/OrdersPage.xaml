@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.OrdersPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="leftarrow.png"
+                       Grid.Column="0" 
+                       HorizontalOptions="Center" 
+                       HeightRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       TextColor="#2C2C2C"
+                       Text="Order History"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+            </Grid>
+            <ListView x:Name="LvOrders"
+                      HasUnevenRows="True"
+                      ItemSelected="LvOrders_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Label Text="Order No."
+                                               TextColor="#2C2C2C" />
+                                        <Label TextColor="#FA6400"
+                                               Text="{Binding Id}"/>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                        <Label Text="Made on"
+                                               TextColor="#2C2C2C" />
+                                        <Label TextColor="Black"
+                                               Text="{Binding OrderPlaced}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Total"
+                                           TextColor="#2C2C2C" />
+                                    <Label  HorizontalOptions="EndAndExpand"
+                                            TextColor="#2C2C2C"
+                                            Text="{Binding OrderTotal, StringFormat='${0}'}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

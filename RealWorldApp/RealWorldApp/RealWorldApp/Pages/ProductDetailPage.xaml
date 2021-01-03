@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RealWorldApp.Pages.ProductDetailPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="4.1*" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="3.2*" />
+                <RowDefinition Height="0.9*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="#EAEAEA"
+                         Grid.Row="0">
+                <Frame  HeightRequest="30"
+                        Padding="10"
+                        CornerRadius="25"
+                        HasShadow="False"
+                        Margin="10,0,0,0"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="EndAndExpand">
+                    <Image Source="backarrow.png"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="EndAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <Image BackgroundColor="#EAEAEA"
+                   Grid.Row="1"
+                   x:Name="ImgProduct"
+                   Aspect="AspectFit"
+                   HeightRequest="200" />
+            <BoxView BackgroundColor="#EAEAEA"
+                     Grid.Row="2" />
+            <Frame Grid.Row="2"
+                   Grid.RowSpan="3"
+                   Padding="15"
+                   HasShadow="False"
+                   CornerRadius="35">
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="4*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="Large"
+                           FontAttributes="Bold"
+                           TextColor="#2C2C2C"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           x:Name="LblName" />
+                    <StackLayout  Grid.Row="0"
+                                  Grid.Column="1"
+                                  Orientation="Horizontal"
+                                  HorizontalOptions="End">
+                        <Label FontSize="Large"
+                               FontAttributes="Bold"
+                               TextColor="#FA6400"
+                               HorizontalOptions="End"
+                               x:Name="LblPrice" />
+                        <Label FontSize="Large"
+                               FontAttributes="Bold"
+                               TextColor="#FA6400"
+                               HorizontalOptions="End"
+                               Text="$" />
+                    </StackLayout>
+                    <Label FontSize="Medium"
+                           TextColor="LightGray"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           x:Name="LblDetail" />
+                    <StackLayout Grid.Row="2"
+                                 Grid.Column="1"
+                                 Spacing="10"
+                                 Margin="0,30,0,0"
+                                 HorizontalOptions="Center"
+                                 Orientation="Horizontal">
+                        <Image Source="minus"
+                               VerticalOptions="Center"
+                               Aspect="AspectFit"
+                               HeightRequest="40">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapRemove" Tapped="TapRemove_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="1"
+                               TextColor="#2C2C2C"
+                               VerticalOptions="Center"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               x:Name="LblQty" />
+                        <Image Source="plus"
+                               VerticalOptions="Center"
+                               Aspect="AspectFit"
+                               HeightRequest="40">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapAdd" Tapped="TapAdd_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="5"
+                   Margin="35,0,35,20"
+                   Padding="5"
+                   BackgroundColor="#FA6400"
+                   HasShadow="False"
+                   CornerRadius="25">
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="1.5*" />
+                        <ColumnDefinition Width="2.5*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="1"
+                           Source="basket.png"
+                           VerticalOptions="Center"
+                           HeightRequest="30" />
+                    <Label Grid.Column="2"
+                           TextColor="White"
+                           Text="Add to Cart"
+                           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapAddToCart" Tapped="TapAddToCart_Tapped"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
